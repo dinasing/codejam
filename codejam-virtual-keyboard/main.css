@@ -1,0 +1,77 @@
+body {
+    margin: 5px auto;
+    width: 1440px;
+}
+.wrapper {
+    
+}
+textarea {
+    width: 1010px;
+    height: 300px;
+    padding: 8px;
+    margin-bottom: 15px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+}
+
+.keyboard {
+    padding: 10px;
+    width: 1008px;
+    height: 350px;
+    display: grid;
+    grid-row-gap: 10px;
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-areas: "row1" "row2" "row3" "row4" "row5";
+    background: linear-gradient(cornflowerblue, rgba(255, 238, 0, 0.747), tomato);
+  }
+  
+  .row1 {
+    display: grid;
+    grid-template-columns: repeat(13, 1fr) 1.375fr;
+    grid-template-rows: 1fr;
+    grid-area: row1;
+  }
+  
+  .row2 {
+    display: grid;
+    grid-template-columns: 1.125fr repeat(12, 1fr)  1.125fr;
+    grid-template-rows: 1fr;
+    grid-area: row2;
+  }
+  
+  .row3 {
+    display: grid;
+    grid-template-columns: 1.5fr repeat(11, 1fr)  2fr;
+    grid-template-rows: 1fr;
+    grid-area: row3;
+  }
+  
+  .row4 {
+    display: grid;
+    grid-template-columns: 2fr repeat(10, 1fr) 2fr;
+    grid-template-rows: 1fr;
+    grid-area: row4;
+  }
+  
+  .row5 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) 5fr repeat(6, 1fr);
+    grid-template-rows: 1fr;
+    grid-area: row5;
+    
+  }
+
+.keyboard__key {
+    margin: 0 2px;
+    display: flex;
+    color: #FFF;  
+    height: 60px;
+    min-width: 60px;
+    justify-content: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+    background: transparent;
+}
+.key-active {
+    background: linear-gradient(tomato, rgba(255, 238, 0, 0.747), cornflowerblue);
+}
