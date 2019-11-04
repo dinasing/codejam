@@ -59,7 +59,6 @@ function setKeysLayout(keyLayout) {
     });
 }
 function handleBackspace() {
-    console.log('gay');
     textarea.innerHTML.length = textarea.innerHTML.length - 1;
 };
 setKeysLayout(keyLayoutEng);
