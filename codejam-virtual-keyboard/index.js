@@ -5,7 +5,15 @@ const keyLayoutEng = [
     "shift", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?","Shift",
     "Ctrl","Win","Alt","Space","Alt", "◄", "▲","▼", "►", "Ctrl"
 ];
-let wrapper = document.createElement('div');
+const keyLayoutRus = [
+    "ё","1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-","=","backspace",
+    "tab","й", "ц", "у", "к", "е", "н", "г", "ш", "щ", "з", "х","ъ","\\",
+    "capslock", "ф", "ы", "в", "а", "п", "р", "о", "л", "д", "ж","э","enter",
+    "shift", "я", "ч", "с", "м", "и", "т", "ь", "б", "ю", ".","Shift",
+    "ctrl","win","alt","space","alt", "◄", "▲","▼", "►", "ctrl"
+];
+let capsLock = false;
+const wrapper = document.createElement('div');
 wrapper.classList.add('wrapper');
 let textarea = document.createElement('textarea');
 let keyboard = document.createElement('div');
@@ -20,11 +28,11 @@ row2.classList.add('row2');
 row3.classList.add('row3');
 row4.classList.add('row4');
 row5.classList.add('row5');
-document.querySelector('body').append(wrapper);
+document.body.append(wrapper);
 document.querySelector('div').append(textarea);
 document.querySelector('div').append(keyboard);
 
-document.getElementsByClassName('keyboard')[0].append(row1, row2, row3, row4, row5);
+keyboard.append(row1, row2, row3, row4, row5);
 
 
 function setKeysLayout(keyLayout) {
@@ -36,6 +44,8 @@ function setKeysLayout(keyLayout) {
         keyElement.classList.add('keyboard__key');
         
         switch (key) {
+            case 'Backspace':
+                keyElement.click = handleBackspace;
             default:
                 keyElement.textContent = key;
     
@@ -48,11 +58,14 @@ function setKeysLayout(keyLayout) {
         
     });
 }
-
+function handleBackspace() {
+    console.log('gay');
+    textarea.innerHTML.length = textarea.innerHTML.length - 1;
+};
 setKeysLayout(keyLayoutEng);
-textarea.onkeydown = handleKeyDown;
-textarea.onkeyup = handleKeyUp; 
 
+textarea.addEventListener('keydown', handleKeyDown);
+textarea.addEventListener('keyup', handleKeyUp);
 function handleKeyDown(e) {
    let buttons = document.querySelectorAll('button');
    buttons.forEach(button => {
